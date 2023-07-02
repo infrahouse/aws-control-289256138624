@@ -56,7 +56,7 @@ resource "aws_iam_role" "state-manager" {
 }
 
 resource "aws_iam_policy" "permissions" {
-  policy   = data.aws_iam_policy_document.permissions.json
+  policy = data.aws_iam_policy_document.permissions.json
 }
 
 resource "aws_iam_role_policy_attachment" "state-manager" {

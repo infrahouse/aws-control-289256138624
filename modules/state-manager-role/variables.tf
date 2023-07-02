@@ -1,6 +1,6 @@
 variable "gha_role_arn" {
   description = "Role that assumes a GitHub Actions worker"
-  type = string
+  type        = string
 }
 
 variable "name" {
@@ -13,8 +13,8 @@ variable "state_bucket" {
 
 variable "state_key" {
   description = "Path to the state file in the state bucket"
-  type = string
-  default = "terraform.tfstate"
+  type        = string
+  default     = "terraform.tfstate"
 }
 
 variable "terraform_locks_table_arn" {
