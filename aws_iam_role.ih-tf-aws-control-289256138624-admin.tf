@@ -72,6 +72,14 @@ data "aws_iam_policy_document" "ih-tf-aws-control-289256138624-github-permission
     ]
     resources = ["*"]
   }
+  statement {
+    actions = [
+      "s3:*"
+    ]
+    resources = [
+      "arn:aws:s3:::infrahouse-aws-control-289256138624/*"
+    ]
+  }
 }
 
 ## EOF Data Sources
