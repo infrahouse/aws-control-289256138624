@@ -56,6 +56,8 @@ resource "aws_iam_role" "state-manager" {
 }
 
 resource "aws_iam_policy" "permissions" {
+#  name = "${var.name}-permissions"
+  name_prefix = var.name
   policy = data.aws_iam_policy_document.permissions.json
 }
 
