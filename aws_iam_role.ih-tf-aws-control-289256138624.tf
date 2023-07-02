@@ -1,7 +1,7 @@
 # Roles for CI/CD in the aws-control-289256138624 repo
 
 module "ih-tf-aws-control-289256138624-admin" {
-  source = "./modules/tf-admin"
+  source = "infrahouse/terraform-aws-gha-admin"
   providers = {
     aws = aws.aws-289256138624-uw1
   }
