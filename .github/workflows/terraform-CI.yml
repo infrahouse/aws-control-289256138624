@@ -30,7 +30,7 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: arn:aws:iam::289256138624:role/ih-tf-aws-control-289256138624-admin
+          role-to-assume: arn:aws:iam::289256138624:role/ih-tf-aws-control-289256138624-github
           role-session-name: github-action-aws-control-289256138624-ci
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
 

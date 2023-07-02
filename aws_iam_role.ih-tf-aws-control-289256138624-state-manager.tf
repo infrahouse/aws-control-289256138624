@@ -8,7 +8,7 @@ data "aws_iam_policy_document" "ih-tf-aws-control-289256138624-state-manager-ass
       type = "AWS"
       identifiers = [
         "arn:aws:iam::990466748045:user/aleks",
-        aws_iam_role.ih-tf-aws-control-289256138624-admin.arn
+        aws_iam_role.ih-tf-aws-control-289256138624-github.arn
       ]
     }
   }
