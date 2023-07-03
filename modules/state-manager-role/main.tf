@@ -28,7 +28,8 @@ data "aws_iam_policy_document" "permissions" {
       "s3:DeleteObject"
     ]
     resources = [
-      "arn:aws:s3:::${var.state_bucket}/${var.state_key}"
+      "arn:aws:s3:::${var.state_bucket}/${var.state_key}",
+      "arn:aws:s3:::${var.state_bucket}/plans/*"
     ]
   }
   statement {
