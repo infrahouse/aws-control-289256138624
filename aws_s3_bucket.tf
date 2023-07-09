@@ -13,6 +13,9 @@ locals {
     "infrahouse-aws-control-303467602807" : {
       description : "Terraform state for ci-cd account https://github.com/infrahouse/aws-control-303467602807"
     }
+    "infrahouse-aws-control-493370826424" : {
+      description : "Terraform state for ci-cd account https://github.com/infrahouse/aws-control-493370826424"
+    }
     "infrahouse-github-state" : {
       description : "Terraform state for https://github.com/infrahouse8/github-control"
     }
