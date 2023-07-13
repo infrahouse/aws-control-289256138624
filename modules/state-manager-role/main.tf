@@ -29,7 +29,8 @@ data "aws_iam_policy_document" "permissions" {
     ]
     resources = [
       "arn:aws:s3:::${var.state_bucket}/${var.state_key}",
-      "arn:aws:s3:::${var.state_bucket}/plans/*"
+      "arn:aws:s3:::${var.state_bucket}/plans/*",
+      "arn:aws:s3:::${var.state_bucket}/*.zip"
     ]
   }
   statement {
