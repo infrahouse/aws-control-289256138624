@@ -6,6 +6,11 @@ variable "gha_role_arn" {
 variable "name" {
   description = "Role name"
 }
+variable "read_only_permissions" {
+  description = "Whether the role should have read-only permissions on the state bucket. It's needed for roles that access the state via terraform_remote_state data source."
+  type        = bool
+  default     = false
+}
 
 variable "state_bucket" {
   description = "Name of the S3 bucket with the state"
