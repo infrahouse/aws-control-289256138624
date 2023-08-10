@@ -14,7 +14,14 @@ data "aws_iam_policy_document" "assume" {
   }
 }
 
-data "aws_iam_policy_document" "permissions" {
+locals {
+  state_resources = [
+    "arn:aws:s3:::${var.state_bucket}/${var.state_key}",
+    "arn:aws:s3:::${var.state_bucket}/plans/*",
+    "arn:aws:s3:::${var.state_bucket}/*.zip"
+  ]
+}
+data "aws_iam_policy_document" "permissions_ro" {
   statement {
     actions = ["s3:ListBucket"]
     resources = [
@@ -24,14 +31,18 @@ data "aws_iam_policy_document" "permissions" {
   statement {
     actions = [
       "s3:GetObject",
+    ]
+    resources = local.state_resources
+  }
+}
+
+data "aws_iam_policy_document" "permissions_rw" {
+  statement {
+    actions = [
       "s3:PutObject",
       "s3:DeleteObject"
     ]
-    resources = [
-      "arn:aws:s3:::${var.state_bucket}/${var.state_key}",
-      "arn:aws:s3:::${var.state_bucket}/plans/*",
-      "arn:aws:s3:::${var.state_bucket}/*.zip"
-    ]
+    resources = local.state_resources
   }
   statement {
     actions = [
@@ -45,7 +56,6 @@ data "aws_iam_policy_document" "permissions" {
     ]
   }
 }
-
 ## EOF Data Sources
 
 
@@ -57,13 +67,25 @@ resource "aws_iam_role" "state-manager" {
   assume_role_policy = data.aws_iam_policy_document.assume.json
 }
 
-resource "aws_iam_policy" "permissions" {
+resource "aws_iam_policy" "permissions_ro" {
   #  name = "${var.name}-permissions"
-  name_prefix = var.name
-  policy      = data.aws_iam_policy_document.permissions.json
+  name_prefix = "${var.name}-ro"
+  policy      = data.aws_iam_policy_document.permissions_ro.json
 }
 
-resource "aws_iam_role_policy_attachment" "state-manager" {
-  policy_arn = aws_iam_policy.permissions.arn
+resource "aws_iam_policy" "permissions_rw" {
+  #  name = "${var.name}-permissions"
+  name_prefix = "${var.name}-rw"
+  policy      = data.aws_iam_policy_document.permissions_rw.json
+}
+
+resource "aws_iam_role_policy_attachment" "state-manager-ro" {
+  policy_arn = aws_iam_policy.permissions_ro.arn
+  role       = aws_iam_role.state-manager.name
+}
+
+resource "aws_iam_role_policy_attachment" "state-manager-rw" {
+  count      = var.read_only_permissions ? 0 : 1
+  policy_arn = aws_iam_policy.permissions_rw.arn
   role       = aws_iam_role.state-manager.name
 }
