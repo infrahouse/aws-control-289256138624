@@ -5,11 +5,8 @@ data "aws_iam_policy_document" "assume" {
     sid     = "000"
     actions = ["sts:AssumeRole"]
     principals {
-      type = "AWS"
-      identifiers = [
-        "arn:aws:iam::990466748045:user/aleks",
-        var.assuming_role_arn
-      ]
+      type        = "AWS"
+      identifiers = var.assuming_role_arns
     }
   }
 }

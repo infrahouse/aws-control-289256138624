@@ -5,4 +5,5 @@ locals {
     ci-cd : "303467602807"
     management : "493370826424"
   }
+  me_arn = "arn:aws:iam::990466748045:user/aleks"
 }

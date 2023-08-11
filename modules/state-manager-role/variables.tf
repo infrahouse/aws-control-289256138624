@@ -1,6 +1,6 @@
-variable "assuming_role_arn" {
-  description = "Role that is allowed to assume this role. For example, a GitHub Actions worker has a role. The GHA role needs to be able to assume the state-manager role."
-  type        = string
+variable "assuming_role_arns" {
+  description = "Roles that are allowed to assume this role. For example, a GitHub Actions worker has a role. The GHA role needs to be able to assume the state-manager role."
+  type        = list(string)
 }
 
 variable "name" {
