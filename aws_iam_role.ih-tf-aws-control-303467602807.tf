@@ -21,7 +21,7 @@ module "ih-tf-aws-control-303467602807-state-manager-read-only" {
   }
   name = "ih-tf-aws-control-${local.aws_account_id.ci-cd}-state-manager-read-only"
   assuming_role_arns = [
-    "arn:aws:iam::${local.aws_account_id.management}:role/ih-tf-aws-control-${local.aws_account_id.management}-admin",
+    "arn:aws:iam::${local.aws_account_id.management}:role/ih-tf-aws-control-${local.aws_account_id.management}-github",
     local.me_arn
   ]
   state_bucket              = "infrahouse-aws-control-${local.aws_account_id.ci-cd}"
