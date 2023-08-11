@@ -15,8 +15,11 @@ module "ih-tf-aws-control-289256138624-state-manager" {
   providers = {
     aws = aws.aws-289256138624-uw1
   }
-  name                      = "ih-tf-aws-control-${local.aws_account_id.terraform-control}-state-manager"
-  assuming_role_arn         = module.ih-tf-aws-control-289256138624-admin.gha_role_arn
+  name = "ih-tf-aws-control-${local.aws_account_id.terraform-control}-state-manager"
+  assuming_role_arns = [
+    module.ih-tf-aws-control-289256138624-admin.gha_role_arn,
+    local.me_arn
+  ]
   state_bucket              = "infrahouse-aws-control-${local.aws_account_id.terraform-control}"
   terraform_locks_table_arn = aws_dynamodb_table.terraform_locks.arn
 }
