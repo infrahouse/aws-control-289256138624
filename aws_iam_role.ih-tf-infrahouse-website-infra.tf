@@ -9,7 +9,7 @@ module "ih-tf-infrahouse-website-infra-state-manager" {
   state_bucket              = "infrahouse-website-infra"
   terraform_locks_table_arn = aws_dynamodb_table.terraform_locks.arn
   assuming_role_arns = [
-    module.buckets["infrahouse-website-infra"].remote_state.outputs.gha_role_arn,
+    "arn:aws:iam::${local.aws_account_id.management}:role/ih-tf-infrahouse-website-infra-github",
     local.me_arn
   ]
 }
