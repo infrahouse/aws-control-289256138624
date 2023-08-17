@@ -11,7 +11,7 @@ module "ih-tf-aws-control-289256138624-admin" {
   state_bucket             = "infrahouse-aws-control-${local.aws_account_id.terraform-control}"
   gh_org_name              = "infrahouse"
   admin_allowed_arns = [
-    "arn:aws:iam::990466748045:user/aleks"
+    local.me_arn
   ]
 }
 

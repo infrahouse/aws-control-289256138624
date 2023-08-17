@@ -5,19 +5,28 @@ locals {
   state_buckets = {
     # InfraHouse states
     "infrahouse-aws-control-990466748045" : {
-      description : "Terraform state for the main AWS account 990466748045 https://github.com/infrahouse/aws-control"
+      description : "Terraform state for the main AWS account 990466748045 https://github.com/infrahouse/aws-control",
+      "repo" : "infrahouse/aws-control"
     }
     "infrahouse-aws-control-289256138624" : {
-      description : "Terraform state for terraform-control account https://github.com/infrahouse/aws-control-289256138624"
+      description : "Terraform state for terraform-control account https://github.com/infrahouse/aws-control-289256138624",
+      "repo" : "infrahouse/aws-control-289256138624"
     }
     "infrahouse-aws-control-303467602807" : {
-      description : "Terraform state for ci-cd account https://github.com/infrahouse/aws-control-303467602807"
+      description : "Terraform state for ci-cd account https://github.com/infrahouse/aws-control-303467602807",
+      "repo" : "infrahouse/aws-control-303467602807"
     }
     "infrahouse-aws-control-493370826424" : {
-      description : "Terraform state for ci-cd account https://github.com/infrahouse/aws-control-493370826424"
+      description : "Terraform state for ci-cd account https://github.com/infrahouse/aws-control-493370826424",
+      "repo" : "infrahouse/aws-control-493370826424"
+    }
+    "infrahouse-website-infra" : {
+      description : "Terraform state for https://github.com/infrahouse/infrahouse-website-infra",
+      "repo" : "infrahouse/infrahouse-website-infra"
     }
     "infrahouse-github-state" : {
-      description : "Terraform state for https://github.com/infrahouse8/github-control"
+      description : "Terraform state for https://github.com/infrahouse8/github-control",
+      "repo" : "infrahouse8/github-control"
     }
 
   }
@@ -33,7 +42,8 @@ module "buckets" {
   tags = merge(
     local.common_tags,
     {
-      "description" : each.value["description"]
+      "description" : each.value["description"],
+      "repo" : each.value["repo"]
     }
   )
 }
