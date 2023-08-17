@@ -10,6 +10,9 @@ module "ih-tf-aws-control-289256138624-admin" {
   repo_name                = "aws-control-${local.aws_account_id.terraform-control}"
   state_bucket             = "infrahouse-aws-control-${local.aws_account_id.terraform-control}"
   gh_org_name              = "infrahouse"
+  admin_allowed_arns = [
+    "arn:aws:iam::990466748045:user/aleks"
+  ]
 }
 
 module "ih-tf-aws-control-289256138624-state-manager" {
