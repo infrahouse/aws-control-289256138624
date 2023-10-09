@@ -1,7 +1,8 @@
 # Roles for CI/CD in the infrahouse-website-infra repo
 
 module "ih-tf-infrahouse-website-infra-state-manager" {
-  source = "./modules/state-manager-role"
+  source  = "infrahouse/state-manager/aws"
+  version = "~> 0.1"
   providers = {
     aws = aws.aws-289256138624-uw1
   }

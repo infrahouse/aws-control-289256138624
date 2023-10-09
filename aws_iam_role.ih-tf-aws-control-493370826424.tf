@@ -1,7 +1,8 @@
 # Roles for CI/CD in the aws-control-493370826424 repo
 
 module "ih-tf-aws-control-493370826424-state-manager" {
-  source = "./modules/state-manager-role"
+  source  = "infrahouse/state-manager/aws"
+  version = "~> 0.1"
   providers = {
     aws = aws.aws-289256138624-uw1
   }
