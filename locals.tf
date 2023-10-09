@@ -1,4 +1,5 @@
 locals {
+  home_account_id = local.aws_account_id.terraform-control
   aws_account_id = {
     control : "990466748045"
     terraform-control : "289256138624"
