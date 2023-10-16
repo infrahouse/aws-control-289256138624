@@ -8,7 +8,7 @@ data "aws_iam_policy_document" "ih-tf-terraform-control-assume" {
       type = "AWS"
       identifiers = [
         "arn:aws:iam::990466748045:user/aleks",
-        "arn:aws:iam::289256138624:role/ih-tf-github-control"
+        "arn:aws:iam::303467602807:role/ih-tf-github-control-github"
       ]
     }
   }
