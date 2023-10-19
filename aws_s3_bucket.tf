@@ -24,10 +24,6 @@ locals {
       description : "Terraform state for https://github.com/infrahouse/infrahouse-website-infra",
       "repo" : "infrahouse/infrahouse-website-infra"
     }
-    "infrahouse-github-state" : {
-      description : "Terraform state for https://github.com/infrahouse8/github-control",
-      "repo" : "infrahouse8/github-control"
-    }
 
   }
 }
