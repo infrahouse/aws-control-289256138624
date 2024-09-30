@@ -2,7 +2,7 @@
 
 module "ih-tf-aws-control-303467602807-state-manager" {
   source  = "infrahouse/state-manager/aws"
-  version = "~> 0.1"
+  version = "~> 1.0"
   providers = {
     aws = aws.aws-289256138624-uw1
   }
@@ -17,7 +17,7 @@ module "ih-tf-aws-control-303467602807-state-manager" {
 
 module "ih-tf-aws-control-303467602807-state-manager-read-only" {
   source  = "infrahouse/state-manager/aws"
-  version = "~> 0.1"
+  version = "~> 1.0"
   providers = {
     aws = aws.aws-289256138624-uw1
   }
