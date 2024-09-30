@@ -2,7 +2,7 @@
 
 module "ih-tf-infrahouse-website-infra-state-manager" {
   source  = "infrahouse/state-manager/aws"
-  version = "~> 0.1"
+  version = "~> 1.0"
   providers = {
     aws = aws.aws-289256138624-uw1
   }
