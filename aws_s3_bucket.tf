@@ -30,7 +30,7 @@ locals {
 
 module "buckets" {
   source  = "infrahouse/state-bucket/aws"
-  version = "~> 1.0"
+  version = "~> 2.0"
   providers = {
     aws = aws.aws-289256138624-uw1
   }
