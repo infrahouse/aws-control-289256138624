@@ -2,7 +2,7 @@
 
 module "ih-tf-aws-control-289256138624-admin" {
   source  = "infrahouse/gha-admin/aws"
-  version = "~> 1.0, >= 1.0.1"
+  version = "3.6.1"
   providers = {
     aws = aws.aws-289256138624-uw1
   }
