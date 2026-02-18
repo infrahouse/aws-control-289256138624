@@ -9,6 +9,7 @@ module "ih-tf-aws-control-990466748045-state-manager" {
   name = "ih-tf-aws-control-state-manager"
   assuming_role_arns = [
     "arn:aws:iam::${local.aws_account_id.control}:role/ih-tf-aws-control-github",
+    local.aws_control_admin_arn,
     local.me_arn
   ]
   state_bucket              = "infrahouse-aws-control-${local.aws_account_id.control}"
