@@ -12,6 +12,5 @@ module "ih-tf-infrahouse-website-infra-state-manager" {
   assuming_role_arns = [
     "arn:aws:iam::${local.aws_account_id.management}:role/ih-tf-infrahouse-website-infra-github",
     local.aws_control_admin_arn,
-    local.me_arn
   ]
 }

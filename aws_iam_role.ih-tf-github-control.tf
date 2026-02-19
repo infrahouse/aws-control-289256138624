@@ -25,16 +25,6 @@ data "aws_iam_policy_document" "ih-tf-github-control-assume" {
       ]
     }
   }
-  statement {
-    sid     = "010"
-    actions = ["sts:AssumeRole"]
-    principals {
-      type = "AWS"
-      identifiers = [
-        "arn:aws:iam::990466748045:user/aleks"
-      ]
-    }
-  }
 }
 
 ## EOF Data Sources

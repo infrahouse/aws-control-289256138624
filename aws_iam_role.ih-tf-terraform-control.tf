@@ -7,7 +7,6 @@ data "aws_iam_policy_document" "ih-tf-terraform-control-assume" {
     principals {
       type = "AWS"
       identifiers = [
-        "arn:aws:iam::990466748045:user/aleks",
         "arn:aws:iam::303467602807:role/ih-tf-github-control-github",
         "arn:aws:sts::303467602807:assumed-role/ih-tf-github-control-github/ih-tf-terraform-control-github-control"
       ]
