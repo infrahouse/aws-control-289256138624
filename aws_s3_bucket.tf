@@ -4,10 +4,6 @@ locals {
 
   state_buckets = {
     # InfraHouse states
-    "infrahouse-aws-control-493370826424" : {
-      description : "Terraform state for ci-cd account https://github.com/infrahouse/aws-control-493370826424",
-      "repo" : "infrahouse/aws-control-493370826424"
-    }
     "infrahouse-website-infra" : {
       description : "Terraform state for https://github.com/infrahouse/infrahouse-website-infra",
       "repo" : "infrahouse/infrahouse-website-infra"
